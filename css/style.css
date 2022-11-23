@@ -1,0 +1,101 @@
+* {
+	margin: 0; padding: 0; box-sizing: border-box;
+  font-family: serif, sans-serif, ;
+  overflow-x: hidden;
+}
+
+table.orders {
+  table-layout: fixed;
+    font-size: 20px;
+    text-align:center;
+    margin-left: 25px;
+    /* margin-left:auto;
+    margin-right: auto; */
+    width:1400px;
+    margin-bottom:20px;
+   
+}
+
+.tr{
+  background-color: #18c51e;
+  height: 50px;
+  border: 1px solid #555;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: rgb(191, 238, 241);}
+
+.detail {
+  font-size: 20px;
+  text-align:left;
+  margin-left:50px;
+  width:500px;
+  /* border: 1px solid #ddd; */
+}
+
+/* table{
+  border: 1px solid #ddd;
+} */
+
+.info{
+  font-size: 40px!important;
+  /* text-align: center; */
+  margin-left: 20px;
+  color:rgb(62, 5, 119);
+
+}
+
+.navbar {
+  overflow: hidden;
+  width:100%;
+  background-color: #223311!important;
+  font-size: large;
+}
+
+.navbar a {
+  float: left;
+  font-size: 20px;
+  color: lightblue;
+  text-align: center;
+  padding: 14px 16px!important;
+  text-decoration: none;
+  /* margin-bottom: 5px;
+  margin-top: 5px; */
+}
+
+.navbg a:hover{
+  background-color: pink;
+  /* background-color: #87f12e; */
+  color: blue;
+  text-decoration: none;
+}
+
+.abc{
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 92vh;
+}
+
+.aboutimg{
+	width: 100%;
+	height: 270px ! important;
+}
+
+#clearcart{
+  margin-left: 20px;
+  border: 1 px solid black;
+  font-size: 24px;
+  color:blue;
+}
+
+#nocart{
+  margin: 50px;
+  font-size: 48px;
+}

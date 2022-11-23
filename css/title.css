@@ -1,0 +1,127 @@
+/*lobster*/
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&display=swap');
+/*poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url('../images/title.jpg');
+    background-size: cover;
+}
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+sub{
+    font-weight: normal;
+    font-size: 16px;
+}
+
+#titleDiv{
+    width: 100%;
+    text-align: center;
+}
+
+#nameTable{
+    margin-bottom: 30px;
+}
+
+#nameTable td{
+    padding: 5px 25px;
+    font-size: 20px;
+}
+
+#tableDiv{
+    margin: 0 auto;
+}
+
+.abc{
+    color:lightgreen;
+}
+
+.subContainer{
+    /* border:  solid red; */
+    border-radius: 2px;
+    width: 900px;
+    max-width: 90%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(50px);
+    color: #ddd;
+    font-family: 'Poppins', sans-serif;
+    /* font-style: italic; */
+}
+
+#title{
+    font-size: 60px;
+    font-family:'Permanent Marker', 'Pacifico', sans-serif;
+    color:  greenyellow;
+}
+
+#amarnath{
+    font-family: 'pacifico','lobster', sans-serif;
+    font-size: 25px;
+}
+
+
+.centerDesig{
+    text-align: center;
+}
+
+.centerDesig .desig{
+    font-size: 18px;
+}
+
+
+.data{
+    margin: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.center{
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.main{
+    font-size: 22px;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+#launch{
+    margin-top: 25px;
+}
+
+#launchButton{
+    font-size: 20px;
+    outline: none;
+    padding: 10px 15px;
+    background-color:transparent;
+    backdrop-filter: blur(5px);
+    color: paleturquoise;
+    cursor: pointer;
+    border: 1px solid coral;
+}
