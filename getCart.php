@@ -2,23 +2,56 @@
 session_start();
 date_default_timezone_set("Asia/Calcutta");
 $email=$_POST['email'];
-$pdo=new PDO("mysql:host=localhost;dbname=wta","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 
 $tot=0;
 
+$flag=0;
 foreach($_SESSION as $key=>$value)
 {
 	if($key=="status")
 	{
 		continue;
 	}
-	
-	$str = ltrim($key, 'p');
-	if($value==0)
+    if($value==0)
 	{
 		continue;
 	} 
 
+	if($key[0]=='a')
+	{
+       $flag=1;
+	}
+	
+
+
+}
+
+if($flag==1)
+{
+
+	foreach($_SESSION as $key=>$value)
+{
+	if($key=="status")
+	{
+		continue;
+	}
+    
+	
+
+    if($key[0]=='c')
+	{
+		$str = ltrim($key, 'c');
+	}
+	else
+	{
+		$str = ltrim($key, 'a');
+	}
+	if($value==0)
+	{
+		continue;
+	} 
+    
 	$result=$pdo->query("select * from product where pid=$str"); 
 	if($row=$result->fetch())
 	{
@@ -30,14 +63,24 @@ foreach($_SESSION as $key=>$value)
 	$pdo->query("insert into orders values('$str','$email','$dt','$value','$ltot')");
 	}
 }
+
 $pdo=null;
 if($tot==1)
 {
-	echo "<div style='font-size:36px;margin:40px'>Order placed for all the items in cart</div>";
+	echo "Order placed for all the items in cart";
 }
 else{
-	echo "<div style='font-size:36px;margin:40px'>No items in cart to place order</div>";
+	echo "No items in cart to place order";
 }
+
+}
+else
+{
+	echo "At least one adult is mandatory";
+}
+
+
+
 
 session_unset();
 session_destroy();

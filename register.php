@@ -4,7 +4,7 @@ $psw=$_POST['psw'];
 $name=$_POST['name'];
 $pno=$_POST['pno'];
 
-$pdo=new PDO("mysql:host=localhost;dbname=wta","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 $result=$pdo->query("select * from users where email='$email'"); 
 if(($row=$result->fetch()))
 {

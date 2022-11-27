@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>ADMIN LOGIN</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
@@ -54,13 +54,13 @@ $("#login").click(function()
 email=$("#email").val();
 psw=$("#psw").val();
 
-$.post( "login.php", { email:email,psw:psw }).done(function( data ) 
+$.post( "adminlogin.php", { email:email,psw:psw }).done(function( data ) 
 { 
 	alert(data);
   if(data!="Failure")
   {  
       setCookie('email',email);
-      location.replace("index.php");
+      location.replace("adminindex.php");
   }
   
 });
@@ -86,7 +86,7 @@ $.post( "login.php", { email:email,psw:psw }).done(function( data )
 				<form class="login100-form validate-form" action="/action_page.php" method="post">
 					
 					<span class="login100-form-title p-t-20 p-b-45">
-						LOGIN
+						ADMIN LOGIN
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Email is required">
@@ -111,14 +111,6 @@ $.post( "login.php", { email:email,psw:psw }).done(function( data )
 						</button>
 					</div>
 
-				
-
-					<div class="text-center w-full">
-						<a class="txt1" href="reg.html">
-							Create new account
-							<i class="fa fa-long-arrow-right"></i>						
-						</a>
-					</div>
 				</form>
 			</div>
 		</div>

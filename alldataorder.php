@@ -1,31 +1,5 @@
 <?php
-$email=$_POST['email'];
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
-$result=$pdo->query("select * from users where email='$email'"); 
 
-if(($row=$result->fetch()))
-{
-    $name=$row['name'];
-    $pno=$row['phone'];
-    // $addr=$row['adrs'];
-    echo <<<END
-   
-    <table class="center detail">
-    <tr><td><b>Name : </b></td><td> $name</td><br>
-    </tr>
-    <tr><td>
-    <b>Email : </b></td><td> $email</td><br>
-    </tr>
-    <tr><td>
-    <b>Phone :</b></td><td> $pno</td><br>
-    </tr>
-    </table>
-<br><br>
-</div> 
-
-END;
-}
-$pdo=null;
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 $result=$pdo->query("select * from orders");
 $n=0;
@@ -63,6 +37,7 @@ echo <<<END
 <td>$amt</td>
 <td>$date</td>
 <td>$desc</td>
+<td><button class="editbtn">edit</button></td>
 </tr>
 
 END;

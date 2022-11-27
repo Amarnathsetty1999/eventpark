@@ -1,14 +1,33 @@
 <?php
-
 $pid=$_POST['pid'];
 session_start();
-if(isset($_SESSION["p$pid"]))
+
+
+if($pid[0]=='c')
 {
-	$_SESSION["p$pid"]+=1;
+	if(isset($_SESSION["c$pid"]))
+	{
+		$_SESSION["c$pid"]+=1;
+	}
+	else
+	{
+	$_SESSION["c$pid"]=1;
+	}
+	echo "Added to Cart ";	
 }
 else
 {
-$_SESSION["p$pid"]=1;
+	if(isset($_SESSION["a$pid"]))
+{
+	$_SESSION["a$pid"]+=1;
 }
-echo " Added to cart successfully";
+else
+{
+$_SESSION["a$pid"]=1;
+}
+echo "Added to Cart";
+
+}
+
+
 ?>

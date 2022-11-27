@@ -1,6 +1,6 @@
 <?php
 
-$pdo=new PDO("mysql:host=localhost;dbname=wta","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 $result=$pdo->query("select * from category"); 
 $cat="";
 while(($row=$result->fetch()))

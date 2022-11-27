@@ -12,8 +12,9 @@ $pid=$_POST['pid'];
 $email=$_POST['email'];
 $qt=1;
 $dt=date('Y-m-d H:i:s');
-$pdo=new PDO("mysql:host=localhost;dbname=wta","root","");
-$res=$pdo->query("select * from product where pid='$pid'");
+$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
+$res=$pdo->query("select *
+ from product where pid='$pid'");
 if(($r=$res->fetch()))
 {
     $price=$r['price'];

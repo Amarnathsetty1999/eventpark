@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pdo=new PDO("mysql:host=localhost;dbname=wta","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 
 $tot=0;
 $cnt=0;
@@ -10,13 +10,20 @@ foreach($_SESSION as $key=>$value)
 	{
 		continue;
 	}
-	$str = ltrim($key, 'p');
+	if($key[0]=='c')
+	{
+		$str = ltrim($key, 'c');
+	}
+	else{
+		$str = ltrim($key, 'a');
+	}
+	
 	if($value==0)
 	{
 		//unset($_SESSION["$key"]);
 		continue;
 	} 
-	
+	echo $str;
 	$result=$pdo->query("select * from product where pid=$str"); 
 	if($row=$result->fetch())
 	{

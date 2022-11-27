@@ -65,7 +65,7 @@ $("#about").click(function()
 {
   email=getCookie('email');
   
-  $.post( "aboutMe.php", {email:email }).done(function( data ) 
+  $.post( "alldataorder.php", {email:email }).done(function( data ) 
     { 
        $("#me").html(data);
     });

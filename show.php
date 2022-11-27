@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <?php
 $cat=$_POST['cat'];
-$pdo=new PDO("mysql:host=localhost;dbname=wta","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 $result=$pdo->query("select * from category,product where product.cid=category.cid and cname='$cat'"); 
 echo <<<END
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -43,7 +43,7 @@ $(".bb").click(function()
 {
   email=getCookie('email');
    pid=this.id;
-  $.post( "purchase.php", {pid:pid,email:email }).done(function( data ) 
+  $.post( "getCart.php", {pid:pid,email:email }).done(function( data ) 
     { 
        alert(data);
     });
@@ -66,12 +66,26 @@ $(".rm").click(function()
   // alert(event.target.id);
   email=getCookie('email');
    bid=this.id;
-  $.post( "removeCart.php", {pid:bid,email:email  }).done(function( data ) 
+  $.post( "removeCart.php", {pid:bid,email:email}).done(function( data ) 
     { 
        alert(data);
     });
 
 });
+
+$(".up").click(function(event)
+{
+  // alert(event.target.id);
+  email=getCookie('email');
+   bid=this.id;
+  $.post( "idupload.php", {pid:bid, email:email}).done(function( data ) 
+    { 
+       alert(data);
+    });
+   event.preventDefault();
+});
+
+
 });
 </script>
 <h1 style="text-align:center;font-variant: small-caps;">$cat products</h1>
@@ -118,12 +132,23 @@ while(($row=$result->fetch()))
 </div>
       <p><strong> Cost: </strong>&#8377; $cost </p>
       <div><button class=bb type=button id=$pid> Buy </button>
-      <button class=ss type=button id="p$pid"> + </button>
-      <button class=rm type=button id="p$pid"> - </button></div>
-      <form action="upload.php" method="post" enctype="multipart/form-data">
+      <form>
+      NO OF CHILDRENS::
+      <button class=ss type=button id="c$pid"> + </button>
+      <button class=rm type=button id="c$pid"> - </button></div>
+      </form>
+
+      <form>
+      NO OF ADULTS::
+      <button class=ss type=button id="a$pid"> + </button>
+      <button class=rm type=button id="a$pid"> - </button></div>
+      </form>
+      
+      
+<form class=up enctype="multipart/form-data">
   Select image to upload:
   <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
+  <input  type="submit" value="Upload Image" name="submit">
 </form>
     </div>
   </div>
