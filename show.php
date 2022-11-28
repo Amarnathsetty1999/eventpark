@@ -3,6 +3,7 @@
 $cat=$_POST['cat'];
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 $result=$pdo->query("select * from category,product where product.cid=category.cid and cname='$cat'"); 
+$email="";
 echo <<<END
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/purstyle.css">
@@ -49,6 +50,23 @@ $(".bb").click(function()
     });
 
 });
+
+$("#ct").click(function()
+{
+  email=getCookie('email');
+  
+  $.post( "getCartD.php", {email:email  }).done(function( data ) 
+    { 
+      alert(data);
+    });
+
+  $.post( "getCountCart.php", {email:email  }).done(function( data ) 
+    { 
+       $("#s").html(data);
+    });
+
+});
+
 $(".ss").click(function(event)
 {
   // alert(event.target.id);
@@ -136,6 +154,7 @@ while(($row=$result->fetch()))
       NO OF CHILDRENS::
       <button class=ss type=button id="c$pid"> + </button>
       <button class=rm type=button id="c$pid"> - </button></div>
+    
       </form>
 
       <form>
@@ -143,12 +162,13 @@ while(($row=$result->fetch()))
       <button class=ss type=button id="a$pid"> + </button>
       <button class=rm type=button id="a$pid"> - </button></div>
       </form>
+    
       
       
-<form class=up enctype="multipart/form-data">
-  Select image to upload:
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input  type="submit" value="Upload Image" name="submit">
+  <form action="idupload.php?pi=getCookie('email');" method="post" enctype="multipart/form-data">
+ Please upload your id
+<input type="file" name="fileToUpload" id="fileToUpload">
+<input type="submit" value="Upload ID" name="submit">
 </form>
     </div>
   </div>

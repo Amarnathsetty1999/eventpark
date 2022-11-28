@@ -5,11 +5,17 @@ session_start();
 // $pno=$_POST['pp'];
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 
+$pn = $_GET['pi'];
+$dat= $_GET['pp'];
+
+
+
 if (isset($_GET['pi'])){
-    $recordId = $_GET['pi'];
+   
     
-    $pdo->exec("delete from users where email='$recordId'");
-    echo "Deleted Successfully";
+    $pdo->exec("delete from orders where pid=$pn and dt='$dat'");
+echo "Deleted Successfully";
+    
    
 }
 // if (isset($_GET['pp'])){
@@ -27,5 +33,5 @@ if (isset($_GET['pi'])){
 
 
 $_SESSION['status']="Active";
-header("location:adminindex.php#")
+//header("location:adminindex.php")
 ?>

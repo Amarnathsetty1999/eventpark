@@ -5,7 +5,7 @@ $email=$_POST['email'];
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 
 $tot=0;
-
+$sum=0;
 $flag=0;
 foreach($_SESSION as $key=>$value)
 {
@@ -17,7 +17,8 @@ foreach($_SESSION as $key=>$value)
 	{
 		continue;
 	} 
-
+     
+     $sum=$sum+$value;
 	if($key[0]=='a')
 	{
        $flag=1;
@@ -27,7 +28,9 @@ foreach($_SESSION as $key=>$value)
 
 }
 
-if($flag==1)
+
+
+if(($flag==1) && ($sum<=8))
 {
 
 	foreach($_SESSION as $key=>$value)
@@ -60,6 +63,8 @@ if($flag==1)
 	
 	$ltot=$price*$value;
 	$dt=date('Y-m-d H:i:s');
+	$sql="insert into orders values('$str','$email','$dt','$value','$ltot')";
+	
 	$pdo->query("insert into orders values('$str','$email','$dt','$value','$ltot')");
 	}
 }
@@ -76,7 +81,17 @@ else{
 }
 else
 {
-	echo "At least one adult is mandatory";
+	if($flag==0)
+	{
+		echo "At least one adult is mandatory";
+	}
+	else
+	{
+		echo "Ticket count is more than 8";
+		
+	}
+	
+	
 }
 
 

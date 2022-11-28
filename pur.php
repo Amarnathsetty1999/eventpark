@@ -168,7 +168,7 @@ $("#ck").click(function()
   
     <a href="#" id="cart">Bookings (<span id="s"></span>)</a>
 
-    <a href="#" id="ck">Check out</a>
+    
   
     <a href="#" id="lo">Logout</a>
   

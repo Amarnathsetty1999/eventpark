@@ -3,6 +3,7 @@ $email=$_POST['email'];
 $psw=$_POST['psw'];
 $name=$_POST['name'];
 $pno=$_POST['pno'];
+$yuy=$pno;
 
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 $result=$pdo->query("select * from users where email='$email'"); 
@@ -19,7 +20,9 @@ if($email=='' || $psw=='' || $name==''|| $pno='')
 }
 else
 {
-$sql="INSERT into users values('$email','$psw','$name','$pno')";
+  
+$sql="INSERT into users values('$email','$psw','$name','$yuy')";
+
 $result=$pdo->exec($sql);
 echo "Registered successfully";
 $pdo=null;

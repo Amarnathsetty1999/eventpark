@@ -1,16 +1,17 @@
 <?php
 
 $pid=$_POST['pid'];
-
 session_start();
-if(isset($_SESSION["p$pid"]))
+if($pid[0]=='c')
 {
-	if($_SESSION["p$pid"]>0)
+	if(isset($_SESSION["c$pid"]))
+{
+	if($_SESSION["c$pid"]>0)
 	{
-		$_SESSION["p$pid"]-=1;
-		if($_SESSION["p$pid"]==0)
+		$_SESSION["c$pid"]-=1;
+		if($_SESSION["c$pid"]==0)
 		{
-			unset($_SESSION["p$pid"]);
+			unset($_SESSION["c$pid"]);
 		}
 		echo "Removed from cart";
 	}
@@ -23,5 +24,35 @@ else
 {
 echo "Add to Cart before removing";
 }
+
+}
+
+else
+{
+
+	if(isset($_SESSION["a$pid"]))
+{
+	if($_SESSION["a$pid"]>0)
+	{
+		$_SESSION["a$pid"]-=1;
+		if($_SESSION["a$pid"]==0)
+		{
+			unset($_SESSION["a$pid"]);
+		}
+		echo "Removed from cart";
+	}
+	else
+	{
+		echo "Add to Cart before removing";
+	}
+}
+else
+	{
+		echo "Add to Cart before removing";
+	}
+
+
+}
+
 
 ?>

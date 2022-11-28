@@ -1,4 +1,7 @@
 <?php
+session_start();
+$email=$_GET['pi'];
+echo $email;
 $target_dir = "idupload/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
