@@ -1,5 +1,5 @@
 <?php
-$email=$_POST['email'];
+$email=$_COOKIE['email'];
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 $result=$pdo->query("select * from users where email='$email'"); 
 
@@ -19,7 +19,11 @@ if(($row=$result->fetch()))
     <tr><td>
     <b>Phone :</b></td><td> $pno</td><br>
     </tr>
+   
     </table>
+
+   
+  
 <br><br>
 </div> 
 
@@ -45,13 +49,15 @@ END;
     $pid=$row['pid'];
     $qt=$row['qty'];
     $amt=$row['amt'];
+    $imageURL='idupload/'.$row['image_name'];
+    echo $imageURL;
     $res=$pdo->query("select * from product where pid='$pid'");
     if(($r=$res->fetch()))
     {
         $pname=$r['pname'];
-        $desc=$r['pdesc'];
+        $desc=$r['pdesc']; 
         $price=$r['price'];
-
+       
   
 echo <<<END
 
@@ -63,6 +69,7 @@ echo <<<END
 <td>$amt</td>
 <td>$date</td>
 <td>$desc</td>
+<td><img src="$imageURL" alt="" style="width:100%"/></td>
 </tr>
 
 END;

@@ -90,17 +90,6 @@ $(".rm").click(function()
 
 });
 
-$(".up").click(function(event)
-{
-  // alert(event.target.id);
-  email=getCookie('email');
-   bid=this.id;
-  $.post( "idupload.php", {pid:bid, email:email}).done(function( data ) 
-    { 
-       alert(data);
-    });
-   event.preventDefault();
-});
 
 
 });
@@ -161,8 +150,19 @@ while(($row=$result->fetch()))
       <button class=ss type=button id="a$pid"> + </button>
       <button class=rm type=button id="a$pid"> - </button></div>
       </form>
-    
-       
+
+      
+   
+
+   <form action="idupload.php?oo=" method="post" enctype="multipart/form-data">
+      Upload your id
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <input type="submit" value="Upload ID" name="submit">
+      </form>
+   
+  
+      
+
  
     </div>
   </div>

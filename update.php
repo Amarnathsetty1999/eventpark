@@ -1,10 +1,9 @@
 
 <?php
 session_start();
-//$ste=$_GET['pi'];
-//$pno=$_POST['pno'];
+
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
-//echo $pno;
+
 
 if (isset($_POST['pno'])){
     $recordId = $_POST['pno'];
@@ -15,7 +14,7 @@ if (isset($_POST['pno'])){
 }
 echo "Updated Successfully";
 
-//echo $pno;
+
 
 $_SESSION['status']="Active";
 header("location:adminindex.php")

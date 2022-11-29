@@ -54,8 +54,14 @@ if(($flag==1) && ($sum<=8))
 	{
 		continue;
 	} 
-    
-	$result=$pdo->query("select * from product where pid=$str"); 
+
+	 $result1=$pdo->query("select * from photoid where email='$email'");
+	 $pdo->exec("delete from photoid where email='$email'");
+    $image="";
+    if($row1=$result1->fetch())
+	{
+      $image=$row1['image_name'];
+	  $result=$pdo->query("select * from product where pid=$str"); 
 	if($row=$result->fetch())
 	{
 		$tot=1;
@@ -63,15 +69,25 @@ if(($flag==1) && ($sum<=8))
 	
 	$ltot=$price*$value;
 	$dt=date('Y-m-d H:i:s');
-	$sql="insert into orders values('$str','$email','$dt','$value','$ltot')";
-	
-	$pdo->query("insert into orders values('$str','$email','$dt','$value','$ltot')");
+	$sql="insert into orders values('$str','$email','$dt','$value','$ltot','$image')";
+	echo $email;
+	$pdo->query("insert into orders values('$str','$email','$dt','$value','$ltot','$image')");
+	//$pdo->query("delete from photoid where email='$email'");
 	}
+	}
+	else{
+		echo "id not found";
+	}
+	
+	
 }
+
+
 
 $pdo=null;
 if($tot==1)
 {
+	
 	echo "Order placed for all the items in cart";
 }
 else{
@@ -93,6 +109,7 @@ else
 	
 	
 }
+
 
 
 

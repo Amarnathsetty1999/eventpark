@@ -6,7 +6,7 @@ session_start();
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 
 $pn = $_GET['pi'];
-$dat= $_GET['pp'];
+$dat= $_GET['pp']; 
 
 
 
