@@ -162,13 +162,8 @@ while(($row=$result->fetch()))
       <button class=rm type=button id="a$pid"> - </button></div>
       </form>
     
-      
-      
-  <form action="idupload.php?pi=getCookie('email')" method="post" enctype="multipart/form-data">
- Please upload your id
-<input type="file" name="fileToUpload" id="fileToUpload">
-<input type="submit" value="Upload ID" name="submit">
-</form>
+       
+ 
     </div>
   </div>
   

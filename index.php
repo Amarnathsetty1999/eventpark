@@ -65,7 +65,7 @@ $("#about").click(function()
 {
   email=getCookie('email');
   
-  $.post( "alldataorder.php", {email:email }).done(function( data ) 
+  $.post( "aboutMe.php", {email:email }).done(function( data ) 
     { 
        $("#me").html(data);
     });
@@ -121,9 +121,7 @@ $("#lo").click(function()
 
   <a href="#abt" id="abtus">About us</a>
 
-  <a href="#" id="cart">Cart(<span id="s"></span>)<i class="fa fa-shopping-cart"></i></a>
-
-  <a href="#" id="ck">Check out</a>
+  <a href="#" id="cart">Booking(<span id="s"></span>)<i class="fa fa-shopping-cart"></i></a>
 
   <a href="#" id="lo">Logout</a>
 

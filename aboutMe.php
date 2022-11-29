@@ -27,7 +27,7 @@ END;
 }
 $pdo=null;
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
-$result=$pdo->query("select * from orders");
+$result=$pdo->query("select * from orders where email='$email'");
 $n=0;
 while(($row=$result->fetch()))
 {
