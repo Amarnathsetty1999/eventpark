@@ -5,26 +5,19 @@ session_start();
 //$pno=$_POST['pno'];
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 //echo $pno;
-if (isset($_GET['pi'])){
-    $recordId = $_GET['pi'];
-    echo $recordId;
-    //$pdo->query("delete from orders where pid=$recordId");
+
+if (isset($_POST['pno'])){
+    $recordId = $_POST['pno'];
+    $mail=$_GET['pi'];
+   
+    $pdo->exec("update users set phone=$recordId where email='$mail'");
    
 }
-if (isset($_GET['pp'])){
-    $recordId = $_GET['pp'];
-    echo $recordId;
-    //$pdo->query("delete from orders where pid=$recordId");
-   
-}
+echo "Updated Successfully";
 
 //echo $pno;
 
-
-
-
-
-
 $_SESSION['status']="Active";
-//header("location:adminindex.php")
+header("location:adminindex.php")
 ?>
+

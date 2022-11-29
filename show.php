@@ -3,7 +3,6 @@
 $cat=$_POST['cat'];
 $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
 $result=$pdo->query("select * from category,product where product.cid=category.cid and cname='$cat'"); 
-$email="";
 echo <<<END
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/purstyle.css">
@@ -165,7 +164,7 @@ while(($row=$result->fetch()))
     
       
       
-  <form action="idupload.php?pi=getCookie('email');" method="post" enctype="multipart/form-data">
+  <form action="idupload.php?pi=getCookie('email')" method="post" enctype="multipart/form-data">
  Please upload your id
 <input type="file" name="fileToUpload" id="fileToUpload">
 <input type="submit" value="Upload ID" name="submit">

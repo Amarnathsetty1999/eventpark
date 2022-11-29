@@ -96,11 +96,14 @@ echo <<<END
 <td>$email</td>
 <td>$psw</td>
 <td>$name</td>
-<td>$phone</td>
+<td><form action="update.php?pi=$email" method="post">
+ <input value=$phone type="number" id="pno" name="pno" placeholder="Phone""><br>
+<input type="submit" value="Update">
+</form></td>
 
 <td><a href="delete.php?pi=$email" class="btn btn-danger btn-sm">Delete</a> </td>
 
-<td><a href="delete.php?pi=$email" class="btn btn-danger btn-sm">Update</a> </td>
+
 
 
 
