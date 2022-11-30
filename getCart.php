@@ -8,6 +8,7 @@ $tot=0;
 $sum=0;
 $flag=0;
 $toi="";
+$idflag=0;
 foreach($_SESSION as $key=>$value)
 {
 	if($key=="status")
@@ -100,7 +101,7 @@ if(($flag==1) && ($sum<=8))
 	}
 	}
 	else{
-		echo "id not found";
+		$idflag=1;
 	}
 	
 	
@@ -116,7 +117,15 @@ if($tot==1)
 	echo "Order placed for all the items in cart";
 }
 else{
-	echo "No items in cart to place order";
+	if($idflag==1)
+	{
+		echo " Id not Uploaded so No order placed";
+	}
+	else
+	{
+		echo "No items in cart to place order";
+	}
+	
 }
 
 }
