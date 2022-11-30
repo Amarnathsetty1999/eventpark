@@ -21,7 +21,7 @@ foreach($_SESSION as $key=>$value)
 
     if($key[0]=='a')
 	{
-	$chi="Children";
+	$chi="Children and";
       $toi.=$chi;
 	}
      

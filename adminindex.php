@@ -85,7 +85,7 @@ $("#lo").click(function()
 
   $.post( "logout.php", {email:email }).done(function( data ) 
     { 
-       location.replace('admimlogin.html');
+       location.replace('adminlogin.html');
     });
 });
 
