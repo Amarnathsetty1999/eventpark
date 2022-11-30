@@ -105,7 +105,7 @@ while(($row=$result->fetch()))
   $pname=$row['eventname'];
   $pdesc=$row['eventdescription'];
   $cost=$row['eventprice'];
-  $path="images/rr$pid.jpeg";
+  $path="images/pr$pid.jpeg";
 
   echo <<<END
 
