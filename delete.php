@@ -27,5 +27,5 @@ if (isset($_GET['pi'])){
 
 
 $_SESSION['status']="Active";
-header("location:adminindex.php#")
+header("location:adminindex.php")
 ?>

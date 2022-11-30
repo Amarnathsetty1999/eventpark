@@ -11,7 +11,7 @@ if($_SESSION['status']!="Active")
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Retail Store</title>
+	<title>Mellodian Park</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,10 +48,7 @@ $(document).ready(function(){
 
 
 
-// $("#abtus").click(function()
-// {
-//   location.replace('index.php#abt');
-// });
+
 
 $("#order").click(function()
 {
@@ -82,6 +79,16 @@ $("#adduser").click(function()
     });
 });
 
+$("#lo").click(function()
+{
+  email=getCookie('email');
+
+  $.post( "logout.php", {email:email }).done(function( data ) 
+    { 
+       location.replace('admimlogin.html');
+    });
+});
+
 
 
 });
@@ -95,6 +102,7 @@ $("#adduser").click(function()
 
   <a href="#" id="order">ALL ORDERS</a>
   <a href="#" id="user">ALL USER</a>
+  <a href="#" id="lo">Logout</a>
   
 </div>
 
