@@ -7,6 +7,7 @@ $pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
 $tot=0;
 $sum=0;
 $flag=0;
+$toi="";
 foreach($_SESSION as $key=>$value)
 {
 	if($key=="status")
@@ -17,10 +18,18 @@ foreach($_SESSION as $key=>$value)
 	{
 		continue;
 	} 
+
+    if($key[0]=='a')
+	{
+	$chi="Children";
+      $toi.=$chi;
+	}
      
      $sum=$sum+$value;
 	if($key[0]=='a')
 	{
+		$chi=" Adult";
+      $toi.=$chi;
        $flag=1;
 	}
 	
@@ -38,7 +47,7 @@ if(($flag==1) && ($sum<=8))
 {
 	
 	
-	$toi="";
+	
 	$dt=date('Y-m-d H:i:s');
 	
 	if($key=="status")
@@ -50,13 +59,13 @@ if(($flag==1) && ($sum<=8))
 
     if($key[0]=='c')
 	{
-		$toi="Children";
+		
 		
 		$str = ltrim($key, 'c');
 	}
 	else if($key[0]=='a')
 	{
-		$toi='Adult';
+		
 		$str = ltrim($key, 'a');
 	}
 

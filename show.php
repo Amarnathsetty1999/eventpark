@@ -111,13 +111,21 @@ while(($row=$result->fetch()))
 
 <!-- Portfolio Gallery Grid -->
 
-   <div class="col-md-4">
-    <div class="thumbnail">
-      <img src="$path" alt="Mountains" style="width:100%">
-      <p><strong>Name: </strong> $pname </p>
-      <a class="ad" data-toggle="modal" data-target="#myModal" onclick="f($pid)"><strong>Description</strong></a>
+<!------ Include the above in your HEAD tag ---------->
 
-<!-- Modal -->
+<link rel="stylesheet" href="css/main.css" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid4">
+                <div class="product-image4">
+                    <a href="#">
+                    <img src="$path" alt="Mountains" style="width:100%">
+                    </a>
+                </div>
+
+                <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -136,37 +144,38 @@ while(($row=$result->fetch()))
 
   </div>
 </div>
-      <p><strong> Cost: </strong>&#163; $cost </p>
-      <div><button class=bb type=button id=$pid> Buy </button>
-      <form>
-      NO OF CHILDRENS::
+                <div class="product-content">
+                    <h3 class="title"><a href="#">$pname </a></h3>
+                    <a class="ad" data-toggle="modal" data-target="#myModal" onclick="f($pid)"><strong>Description</strong></a>
+                    <div class="price">
+                        <p><strong> </strong>&#163; $cost </p>
+                    </div>
+                    <div><button class=bb type=button id=$pid> Buy </button>
+                    
+                  <div>
+      CHILDRENS::
       <button class=ss type=button id="c$pid"> + </button>
-      <button class=rm type=button id="c$pid"> - </button></div>
-    
-      </form>
-
-      <form>
-      NO OF ADULTS::
+      <button class=rm type=button id="c$pid"> - </button>
+      ADULTS::
       <button class=ss type=button id="a$pid"> + </button>
-      <button class=rm type=button id="a$pid"> - </button></div>
-      </form>
-
-      
-   
-
-   <form action="idupload.php?oo=" method="post" enctype="multipart/form-data">
+      <button class=rm type=button id="a$pid"> - </button>
+                  </div>
+                  
+                  
+        <div>
+            <form action="idupload.php?oo=" method="post" enctype="multipart/form-data">
       Upload your id
       <input type="file" name="fileToUpload" id="fileToUpload">
       <input type="submit" value="Upload ID" name="submit">
       </form>
-   
-  
-      
-
- 
+        </div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  
+</div>
+<hr>
 
 <!-- END MAIN -->
 

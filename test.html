@@ -1,0 +1,68 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="css/main.css" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid4">
+                <div class="product-image4">
+                    <a href="#">
+                    <img class="pic-1" src="https://www.w3schools.com/bootstrap4/img_avatar4.png">
+                    </a>
+                </div>
+
+                <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title">Event Description</h4>        
+      </div>
+      <div class="modal-body" id="m1">
+        
+      </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" style='margin-right:20px;padding:5px'>Close</button>
+      </div> 
+    </div>
+
+  </div>
+</div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">$pname </a></h3>
+                    <a class="ad" data-toggle="modal" data-target="#myModal" onclick="f($pid)"><strong>Description</strong></a>
+                    <div class="price">
+                        <p><strong> </strong>&#163; $cost </p>
+                    </div>
+                    <div><button class=bb type=button id=$pid> Buy </button>
+                    
+                  <div>
+      CHILDRENS::
+      <button class=ss type=button id="c$pid"> + </button>
+      <button class=rm type=button id="c$pid"> - </button>
+      ADULTS::
+      <button class=ss type=button id="a$pid"> + </button>
+      <button class=rm type=button id="a$pid"> - </button>
+                  </div>
+                  
+                  
+        <div>
+            <form action="idupload.php?oo=" method="post" enctype="multipart/form-data">
+      Upload your id
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <input type="submit" value="Upload ID" name="submit">
+      </form>
+        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
