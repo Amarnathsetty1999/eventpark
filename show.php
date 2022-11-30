@@ -156,7 +156,9 @@ while(($row=$result->fetch()))
       CHILDRENS::
       <button class=ss type=button id="c$pid"> + </button>
       <button class=rm type=button id="c$pid"> - </button>
-      ADULTS::
+      </div>
+      <div>
+        ADULTS::
       <button class=ss type=button id="a$pid"> + </button>
       <button class=rm type=button id="a$pid"> - </button>
                   </div>
