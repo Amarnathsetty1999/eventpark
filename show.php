@@ -145,7 +145,7 @@ while(($row=$result->fetch()))
   </div>
 </div>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">$pname </a></h3>
+                    <h3 class="title">$pname</h3>
                     <a class="ad" data-toggle="modal" data-target="#myModal" onclick="f($pid)"><strong>Description</strong></a>
                     <div class="price">
                         <p><strong> </strong>&#163; $cost </p>
