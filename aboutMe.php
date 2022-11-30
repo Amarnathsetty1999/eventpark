@@ -1,7 +1,7 @@
 <?php
 $email=$_COOKIE['email'];
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
-$result=$pdo->query("select * from users where email='$email'"); 
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
+$result=$pdo->query("select * from customers where email='$email'"); 
 
 if(($row=$result->fetch()))
 {
@@ -30,8 +30,8 @@ if(($row=$result->fetch()))
 END;
 }
 $pdo=null;
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
-$result=$pdo->query("select * from orders where email='$email'");
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
+$result=$pdo->query("select * from booking where email='$email'");
 $n=0;
 while(($row=$result->fetch()))
 {
@@ -41,22 +41,22 @@ while(($row=$result->fetch()))
         echo <<<END
         <div class="info"><b> Orders History</b></div><br>
 <table border class="center orders"><tr class="tr">
-<th> Product  </th><th style='width:100px'> Quantity </th><th> Unit price  </th><th> Total Amount  </th><th style='width:200px'> Date  </th><th style='width:550px'> Description  </th></tr>
+<th> Event  </th><th style='width:100px'>No of Individual </th><th> Type of Individual </th><th> Unit Price  </th><th> Total Amount  </th><th> Date  </th><th style='width:200px'> Photoid  </th></tr>
 END;
 
     }
-    $date=$row['dt'];
-    $pid=$row['pid'];
-    $qt=$row['qty'];
-    $amt=$row['amt'];
-    $imageURL='idupload/'.$row['image_name'];
-    echo $imageURL;
-    $res=$pdo->query("select * from product where pid='$pid'");
+    $date=$row['date'];
+    $pid=$row['eventid'];
+    $qt=$row['count_of_individual'];
+    $amt=$row['totalamount'];
+    $imageURL='idupload/'.$row['photoid'];
+    $toi=$row['type_of_individual'];
+    $res=$pdo->query("select * from events where eventid='$pid'");
     if(($r=$res->fetch()))
     {
-        $pname=$r['pname'];
-        $desc=$r['pdesc']; 
-        $price=$r['price'];
+        $pname=$r['eventname'];
+        $desc=$r['eventdescription']; 
+        $price=$r['eventprice'];
        
   
 echo <<<END
@@ -65,10 +65,10 @@ echo <<<END
 
 <td>$pname</td>
 <td>$qt</td>
+<td>$toi</td>
 <td>$price</td>
 <td>$amt</td>
 <td>$date</td>
-<td>$desc</td>
 <td><img src="$imageURL" alt="" style="width:100%"/></td>
 </tr>
 

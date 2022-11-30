@@ -93,7 +93,6 @@ $("#adduser").click(function()
  
   <a class="navbar-brand bgs" href="#" id="title">Mellodian Community Park </a>
 
-  <a href="#" id="adduser">Add User</a>
   <a href="#" id="order">ALL ORDERS</a>
   <a href="#" id="user">ALL USER</a>
   

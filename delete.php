@@ -3,12 +3,12 @@
 session_start();
 //$ste=$_GET['pi'];
 // $pno=$_POST['pp'];
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
 
 if (isset($_GET['pi'])){
     $recordId = $_GET['pi'];
     
-    $pdo->exec("delete from users where email='$recordId'");
+    $pdo->exec("delete from customers where email='$recordId'");
     echo "Deleted Successfully";
    
 }

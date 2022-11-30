@@ -1,8 +1,8 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <?php
 $cat=$_POST['cat'];
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
-$result=$pdo->query("select * from category,product where product.cid=category.cid and cname='$cat'"); 
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
+$result=$pdo->query("select * from category,events where events.catid=category.catid and catname='$cat'"); 
 echo <<<END
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/purstyle.css">
@@ -94,18 +94,18 @@ $(".rm").click(function()
 
 });
 </script>
-<h1 style="text-align:center;font-variant: small-caps;">$cat products</h1>
+<h1 style="text-align:center;font-variant: small-caps;">$cat event</h1>
 <hr>
 <div class="container"> 
         <div class="row">
 END;
 while(($row=$result->fetch()))
 {
-  $pid=$row['pid'];
-  $pname=$row['pname'];
-  $pdesc=$row['pdesc'];
-  $cost=$row['price'];
-  $path="images/pp$pid.JPG";
+  $pid=$row['eventid'];
+  $pname=$row['eventname'];
+  $pdesc=$row['eventdescription'];
+  $cost=$row['eventprice'];
+  $path="images/rr$pid.jpeg";
 
   echo <<<END
 
@@ -124,7 +124,7 @@ while(($row=$result->fetch()))
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-      <h4 class="modal-title">Product Description</h4>        
+      <h4 class="modal-title">Event Description</h4>        
       </div>
       <div class="modal-body" id="m1">
         
@@ -136,7 +136,7 @@ while(($row=$result->fetch()))
 
   </div>
 </div>
-      <p><strong> Cost: </strong>&#8377; $cost </p>
+      <p><strong> Cost: </strong>&#163; $cost </p>
       <div><button class=bb type=button id=$pid> Buy </button>
       <form>
       NO OF CHILDRENS::

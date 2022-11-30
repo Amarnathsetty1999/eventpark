@@ -1,7 +1,7 @@
 <?php
 
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
-$result=$pdo->query("select * from orders");
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
+$result=$pdo->query("select * from booking");
 $n=0;
 
 
@@ -13,23 +13,23 @@ while(($row=$result->fetch()))
     {
         $n=1;
         echo <<<END
-        <div class="info"><b> Orders History</b></div><br>
+        <div class="info"><b> Booking History</b></div><br>
 <table border class="center orders"><tr class="tr">
 <th> Product  </th><th style='width:100px'> Email </th><th> Quantity  </th><th> Total Amount  </th><th style='width:200px'> Date  </th><th style='width:550px'> Description  </th></tr>
 END;
 
     }
     $email=$row['email'];
-    $date=$row['dt'];
-    $pid=$row['pid']; 
-    $qt=$row['qty'];
-    $amt=$row['amt'];
-    $res=$pdo->query("select * from product where pid='$pid'");
+    $date=$row['date'];
+    $pid=$row['eventid']; 
+    $qt=$row['count_of_individual'];
+    $amt=$row['totalamount'];
+    $res=$pdo->query("select * from events where eventid='$pid'");
     if(($r=$res->fetch()))
     {
-        $pname=$r['pname'];
-        $desc=$r['pdesc'];
-        $price=$r['price'];
+        $pname=$r['eventname'];
+        $desc=$r['eventdescription'];
+        $price=$r['eventprice'];
        
 
   

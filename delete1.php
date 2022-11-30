@@ -3,7 +3,7 @@
 session_start();
 //$ste=$_GET['pi'];
 // $pno=$_POST['pp'];
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
 
 $pn = $_GET['pi'];
 $dat= $_GET['pp']; 
@@ -13,7 +13,7 @@ $dat= $_GET['pp'];
 if (isset($_GET['pi'])){
    
     
-    $pdo->exec("delete from orders where pid=$pn and dt='$dat'");
+    $pdo->exec("delete from booking where eventid=$pn and date='$dat'");
 echo "Deleted Successfully";
     
    

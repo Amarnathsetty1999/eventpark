@@ -65,7 +65,7 @@ $.post( "getName.php", { email:$email }).done(function( data )
   
 });
 
-$.post( "show.php", {cat:"Children"  }).done(function( data ) 
+$.post( "show.php", {cat:"Mellodian"  }).done(function( data ) 
 { 
       $("#imp").html(data);
      
@@ -179,7 +179,7 @@ $("#ck").click(function()
 <div id="rec" class="carousel">
 <div class="form-group" style=width:50%>
   <!-- <div class="col-lg-2"> -->
-  <label for="sel1"> <h2> Select Product Category: </h2> </label>
+  <label for="sel1"> <h2> Select Event Category: </h2> </label>
   <select class="form-control" id="sel1">
     
   </select>

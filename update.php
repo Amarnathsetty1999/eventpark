@@ -2,14 +2,14 @@
 <?php
 session_start();
 
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
 
 
 if (isset($_POST['pno'])){
     $recordId = $_POST['pno'];
     $mail=$_GET['pi'];
    
-    $pdo->exec("update users set phone=$recordId where email='$mail'");
+    $pdo->exec("update customers set phone=$recordId where email='$mail'");
    
 }
 echo "Updated Successfully";

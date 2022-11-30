@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
 
 $tot=0;
 $cnt=0;
@@ -24,16 +24,17 @@ foreach($_SESSION as $key=>$value)
 		continue;
 	} 
 	echo $str;
-	$result=$pdo->query("select * from product where pid=$str"); 
+	$result=$pdo->query("select * from events where eventid=$str"); 
 	if($row=$result->fetch())
 	{
 		if($cnt==0)
 		{
-			echo "<table border class='abc'><tr><th style='width:550px'> Product Name </th><th style='width:120px'> Quantity </th><th style='width:200px'> Unit Price </th><th style='width:100px'>Total</tr>";
+			echo "<table border class='abc'><tr><th style='width:550px'> Event Name </th><th style='width:120px'> Number_of_Individual </th><th style='width:200px'> Unit Price </th><th style='width:100px'>Total</tr>";
 		}
 		$cnt=1;
-		$name=$row['pname'];
-		$price=$row['price'];
+		$name=$row['eventid'];
+		$price=$row['eventprice'];
+		
 	}
 	
 	$ltot=$price*$value;

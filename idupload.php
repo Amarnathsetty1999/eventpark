@@ -10,7 +10,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $fname= $_FILES["fileToUpload"]["name"];
 echo $email;
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-  $pdo=new PDO("mysql:host=localhost;dbname=test","root","");
+  $pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
   $result=$pdo->query("select * from photoid where email='$email'"); 
   if(($row=$result->fetch()))
   {

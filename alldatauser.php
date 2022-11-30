@@ -2,9 +2,9 @@
 
 
 
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
 
-$result=$pdo->query("select * from users"); 
+$result=$pdo->query("select * from customers"); 
 
 $n=0;
 

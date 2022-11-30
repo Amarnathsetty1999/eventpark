@@ -5,8 +5,8 @@ $name=$_POST['name'];
 $pno=$_POST['pno'];
 $yuy=$pno;
 
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
-$result=$pdo->query("select * from users where email='$email'"); 
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
+$result=$pdo->query("select * from customers where email='$email'"); 
 if(($row=$result->fetch()))
 {
   echo "Specified email already existss";
@@ -21,7 +21,7 @@ if($email=='' || $psw=='' || $name==''|| $pno='')
 else
 {
   
-$sql="INSERT into users values('$email','$psw','$name','$yuy')";
+$sql="INSERT into customers values('$email','$psw','$name','$yuy')";
 
 $result=$pdo->exec($sql);
 echo "Registered successfully";

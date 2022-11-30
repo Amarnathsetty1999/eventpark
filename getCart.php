@@ -1,8 +1,8 @@
 <?php
 session_start();
-date_default_timezone_set("Asia/Calcutta");
+date_default_timezone_set("Europe/London");
 $email=$_POST['email'];
-$pdo=new PDO("mysql:host=localhost;dbname=test","root","");
+$pdo=new PDO("mysql:host=localhost;dbname=park_tickets","root","");
 
 $tot=0;
 $sum=0;
@@ -32,9 +32,15 @@ foreach($_SESSION as $key=>$value)
 
 if(($flag==1) && ($sum<=8))
 {
+	
 
 	foreach($_SESSION as $key=>$value)
 {
+	
+	
+	$toi="";
+	$dt=date('Y-m-d H:i:s');
+	
 	if($key=="status")
 	{
 		continue;
@@ -44,34 +50,43 @@ if(($flag==1) && ($sum<=8))
 
     if($key[0]=='c')
 	{
+		$toi="Children";
+		
 		$str = ltrim($key, 'c');
 	}
-	else
+	else if($key[0]=='a')
 	{
+		$toi='Adult';
 		$str = ltrim($key, 'a');
 	}
+
+
+
 	if($value==0)
 	{
 		continue;
 	} 
 
+	
+     
 	 $result1=$pdo->query("select * from photoid where email='$email'");
-	 $pdo->exec("delete from photoid where email='$email'");
+	
     $image="";
     if($row1=$result1->fetch())
 	{
       $image=$row1['image_name'];
-	  $result=$pdo->query("select * from product where pid=$str"); 
+	  $result=$pdo->query("select * from events where eventid=$str"); 
 	if($row=$result->fetch())
 	{
 		$tot=1;
-		$price=$row['price'];
+		$price=$row['eventprice'];
+		
+	$ltot=$price*$sum;
 	
-	$ltot=$price*$value;
-	$dt=date('Y-m-d H:i:s');
 	$sql="insert into orders values('$str','$email','$dt','$value','$ltot','$image')";
-	echo $email;
-	$pdo->query("insert into orders values('$str','$email','$dt','$value','$ltot','$image')");
+	
+	$pdo->query("insert into booking values('$str','$email','$dt','$toi','$sum','$ltot','$image')");
+	break;
 	//$pdo->query("delete from photoid where email='$email'");
 	}
 	}
@@ -81,6 +96,7 @@ if(($flag==1) && ($sum<=8))
 	
 	
 }
+$pdo->exec("delete from photoid where email='$email'");
 
 
 

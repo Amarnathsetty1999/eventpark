@@ -11,7 +11,7 @@ if($_SESSION['status']!="Active")
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Retail Store</title>
+	<title>Mellodian community park</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -133,8 +133,7 @@ $("#lo").click(function()
 <div id="rec"><?php include('home.html'); ?></div>
 <div class="about-section" id="abt">
   <h1 style='overflow:hidden'>About Us</h1>
-  <p>Online retail store, is an Indian chain of hypermarkets in India founded 
-      by Gowtham and co in the year 2021, with its first branch in shimoga.</p>
+  <p>Mellodian Community Park, Explore nature and learn about the environment, improve your health and wellbeing or experience live outdoor music and performances, there's something for everyone. Find out what's happening in your community Park...</p>
   <!-- <p>Resize the browser window to see that this page is responsive by the way.</p> -->
 </div>
 
