@@ -113,7 +113,7 @@ while(($row=$result->fetch()))
 
 <!------ Include the above in your HEAD tag ---------->
 
-<link rel="stylesheet" href="css/main.css" />
+
 
 <div class="container">
     <div class="row">
